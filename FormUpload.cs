@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace GrowtopiaStealerV2
+namespace RSPROXY
 {
     public static class FormUpload //formats data as a multi part form to allow for file sharing
     {
