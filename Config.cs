@@ -1,4 +1,4 @@
-﻿namespace GrowtopiaStealerV2
+﻿namespace RSPROXY
 {
     class Config
     {
